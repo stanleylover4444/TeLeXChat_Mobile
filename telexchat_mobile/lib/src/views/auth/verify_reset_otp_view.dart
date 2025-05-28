@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:telexchat_mobile/src/navigations/app_pages.dart';
 import 'package:telexchat_mobile/src/styles/colors.dart';
@@ -7,6 +7,7 @@ import 'package:telexchat_mobile/src/styles/defaultstyles.dart';
 import 'package:telexchat_mobile/src/widgets/widget_appbar.dart';
 import 'package:telexchat_mobile/src/widgets/widget_button.dart';
 import 'package:telexchat_mobile/src/widgets/widget_scaffold.dart';
+
 
 class VerifyResetOtpView extends StatelessWidget {
   const VerifyResetOtpView({super.key});

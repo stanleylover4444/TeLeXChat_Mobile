@@ -71,6 +71,20 @@ class DefaultStyles {
     color: Colors.white,
   );
 
+   static const TextStyle medium14Black = TextStyle(
+    fontFamily: 'Google Sans',
+    fontWeight: FontWeight.w500, // Medium
+    fontSize: 14,
+    color: Colors.black,
+  );
+
+  static const TextStyle medium14White = TextStyle(
+    fontFamily: 'Google Sans',
+    fontWeight: FontWeight.w500, // Medium
+    fontSize: 14,
+    color: Colors.white,
+  );
+
   static const TextStyle regular14White = TextStyle(
     fontFamily: 'Google Sans',
     fontWeight: FontWeight.w400, // Regular

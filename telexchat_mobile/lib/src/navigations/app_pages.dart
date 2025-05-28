@@ -1,15 +1,19 @@
 import 'package:get/get.dart';
+
+import 'package:telexchat_mobile/src/views/profile_view.dart';
+import 'package:telexchat_mobile/src/views/setting_view.dart';
 import 'package:telexchat_mobile/src/navigations/main_tab_view.dart';
-import 'package:telexchat_mobile/src/pages/auth/forgot_password_phone_view.dart';
-import 'package:telexchat_mobile/src/pages/auth/login_view.dart';
-import 'package:telexchat_mobile/src/pages/auth/register_view.dart';
-import 'package:telexchat_mobile/src/pages/auth/reset_password_view.dart';
-import 'package:telexchat_mobile/src/pages/auth/verify_reset_otp_view.dart';
-import 'package:telexchat_mobile/src/pages/auth/wellcome_view.dart';
-import 'package:telexchat_mobile/src/pages/home/new_feature_view.dart';
+import 'package:telexchat_mobile/src/views/new_feature_view.dart';
+
+import 'package:telexchat_mobile/src/views/auth/login_view.dart';
+import 'package:telexchat_mobile/src/views/auth/register_view.dart';
+import 'package:telexchat_mobile/src/views/auth/reset_password_view.dart';
+import 'package:telexchat_mobile/src/views/auth/wellcome_view.dart';
+import 'package:telexchat_mobile/src/views/auth/forgot_password_phone_view.dart';
+import 'package:telexchat_mobile/src/views/auth/verify_reset_otp_view.dart';
 
 class AppRoutes {
-  // OUTSIDE
+  // OUTSIDE (Unauthenticated routes)
   static const welcome = '/';
   static const login = '/login';
   static const register = '/register';
@@ -17,53 +21,28 @@ class AppRoutes {
   static const verifyOtpView = '/verifyOtpView';
   static const resetPassword = '/resetPassword';
 
-  // INSIDE
+  // INSIDE (Authenticated routes)
+  static const setting = '/setting';
+  static const profile = '/profile';
   static const mainTab = '/mainTab';
   static const newFeature = '/newFeature';
 
   static final routes = [
     // OUTSIDE
-    GetPage(
-      name: welcome,
-      page: () => const WellcomeView(),
-      //  middlewares: [AuthMiddleware()],
-    ),
-    GetPage(
-      name: login,
-      page: () => const LoginView(),
-      //  middlewares: [AuthMiddleware()],
-    ),
-    GetPage(
-      name: register,
-      page: () => const RegisterView(),
-      // middlewares: [AuthMiddleware()],
-    ),
-    GetPage(
-      name: forgotPassword,
-      page: () => const ForgotPasswordPhoneView(),
-      //middlewares: [AuthMiddleware()],
-    ),
-    GetPage(
-      name: verifyOtpView,
-      page: () => const VerifyResetOtpView(),
-      // middlewares: [AuthMiddleware()],
-    ),
-    GetPage(
-      name: resetPassword,
-      page: () => const ResetPasswordView(),
-
-      ///middlewares: [AuthMiddleware()],
-    ),
-
-    GetPage(
-      name: mainTab,
-      page: () => const MainTabView(),
-      // middlewares: [AuthMiddleware()],
-    ),
-
-    GetPage(name: newFeature, page: () => const NewFeatureView()),
+    GetPage(name: welcome, page: () => const WellcomeView()),
+    GetPage(name: login, page: () => LoginView()),
+    GetPage(name: register, page: () => RegisterView()),
+    GetPage(name: forgotPassword, page: () => const ForgotPasswordPhoneView()),
+    GetPage(name: verifyOtpView, page: () => const VerifyResetOtpView()),
+    GetPage(name: resetPassword, page: () => const ResetPasswordView()),
 
     // INSIDE
+    GetPage(name: mainTab, page: () => const MainTabView()),
+    GetPage(name: setting, page: () => const SettingView()),
+    GetPage(name: profile, page: () => const ProfileView()),
+    GetPage(name: newFeature, page: () => const NewFeatureView()),
+
+    // Example middleware usage (commented out)
     // GetPage(name: home, page: () => const HomeView(), middlewares: [AuthMiddleware()]),
   ];
 }

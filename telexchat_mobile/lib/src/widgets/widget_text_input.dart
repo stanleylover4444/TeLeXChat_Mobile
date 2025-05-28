@@ -52,7 +52,7 @@ class _CustomTextInputState extends State<CustomTextInput> {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 5),
-          child: Text(widget.label, style: DefaultStyles.regular12Black),
+          child: Text(widget.label, style: DefaultStyles.medium14Black),
         ),
         const SizedBox(height: 6),
         TextField(

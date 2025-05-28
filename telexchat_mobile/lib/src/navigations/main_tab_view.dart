@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
-import 'package:telexchat_mobile/src/pages/home/message_view.dart';
-import 'package:telexchat_mobile/src/pages/home/notification_view.dart';
-import 'package:telexchat_mobile/src/pages/home/setting_view.dart';
 import 'package:telexchat_mobile/src/styles/colors.dart';
 import 'package:telexchat_mobile/src/styles/defaultstyles.dart';
+import 'package:telexchat_mobile/src/views/category_view.dart';
+import 'package:telexchat_mobile/src/views/message_view.dart';
+import 'package:telexchat_mobile/src/views/notification_view.dart';
+import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({Key? key}) : super(key: key);
@@ -18,11 +18,12 @@ class _MainTabViewState extends State<MainTabView> {
 
   final List<IconData> icons = [
     Icons.message_rounded,
+    Icons.group,
     Icons.notifications,
     Icons.settings,
   ];
 
-  final List<String> labels = ['Tin nhắn', 'Thông Báo', 'Cá nhân'];
+  final List<String> labels = ['Tin nhắn', 'Bạn bè', 'Thông Báo', 'Cá nhân'];
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class _MainTabViewState extends State<MainTabView> {
         width: MediaQuery.of(context).size.width * 0.9,
         borderRadius: BorderRadius.circular(8),
         hideOnScroll: true,
+        offset: 25,
         barDecoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -45,7 +47,7 @@ class _MainTabViewState extends State<MainTabView> {
         ),
         barColor: Colors.white,
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.075,
+          height: MediaQuery.of(context).size.height * 0.1,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: List.generate(icons.length, (index) {
@@ -58,7 +60,7 @@ class _MainTabViewState extends State<MainTabView> {
                     Icon(
                       icons[index],
                       color: isSelected ? AppColors.primary : AppColors.gray,
-                      size: 24,
+                      size: 26,
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -76,8 +78,9 @@ class _MainTabViewState extends State<MainTabView> {
         body: (context, controller) {
           final pages = [
             MessageView(controller: controller),
+            MessageView(controller: controller),
             NotificationView(),
-            SettingView(),
+            CategoryView(),
           ];
           return pages[currentIndex];
         },
